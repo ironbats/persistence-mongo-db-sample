@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/messages")
-@Api(value = "Messages", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+@Api(value = "Messages Controller", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 public class MessageController {
 
 
