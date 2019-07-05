@@ -42,51 +42,59 @@ public class DefaultMessagesService {
 
         if(botsModel != null) {
 
-            messageModel.setText(messagesDTO.getText());
-            messageModel.setTimestamp(messagesDTO.getTimestamp());
-            messageModel.setFrom(botsModel);
-            if(anonymousModel  == null) {
-                AnonymousModel anonymous = new AnonymousModel();
-                anonymous.setIdentify(ANONYMOUS_ID);
-                mongoTemplate.insert(anonymous);
-                messageModel.setTo(anonymous);
-            }else {messageModel.setTo(anonymousModel);}
-
-            mongoTemplate.insert(messageModel);
-
-
-                messageModel.setConversationModel(new ConversationModel());
-                messageModel.getConversationModel().setConversationId(CONVERSATION_ID);
-                messageModel.getConversationModel().setAnonymousModel(anonymousModel);
-                messageModel.getConversationModel().setBotsModel(botsModel);
-                messageModel.getConversationModel().setText(messagesDTO.getText());
-
-                mongoTemplate.insert(messageModel.getConversationModel());
-                mongoTemplate.save(messageModel);
-
+            sentMessageBots(messagesDTO, messageModel, anonymousModel, botsModel);
 
         }
        else {
             if(anonymousModel != null) {
-                messageModel.setText(messagesDTO.getText());
-                messageModel.setFrom(anonymousModel);
-                messageModel.setTo(mongoTemplate.findOne(new Query(Criteria.where("identify").is(BOTS_ID)),BotsModel.class));
-                messageModel.setTimestamp(messagesDTO.getTimestamp());
-                mongoTemplate.insert(messageModel);
-
-                messageModel.setConversationModel(new ConversationModel());
-                messageModel.getConversationModel().setAnonymousModel(anonymousModel);
-                messageModel.getConversationModel().setText(messagesDTO.getText());
-                messageModel.getConversationModel().setConversationId(CONVERSATION_ID);
-
-                mongoTemplate.insert(messageModel.getConversationModel());
-                mongoTemplate.save(messageModel);
+                sentMessageAnonymousUser(messagesDTO, messageModel, anonymousModel);
 
             }
         }
 
     }
 
+    private void sentMessageAnonymousUser(MessagesDTO messagesDTO, MessageModel messageModel, AnonymousModel anonymousModel)
+    {
+        messageModel.setText(messagesDTO.getText());
+        messageModel.setFrom(anonymousModel);
+        messageModel.setTo(mongoTemplate.findOne(new Query(Criteria.where("identify").is(BOTS_ID)), BotsModel.class));
+        messageModel.setTimestamp(messagesDTO.getTimestamp());
+        mongoTemplate.insert(messageModel);
+
+        messageModel.setConversationModel(new ConversationModel());
+        messageModel.getConversationModel().setAnonymousModel(anonymousModel);
+        messageModel.getConversationModel().setText(messagesDTO.getText());
+        messageModel.getConversationModel().setConversationId(CONVERSATION_ID);
+
+        mongoTemplate.insert(messageModel.getConversationModel());
+        mongoTemplate.save(messageModel);
+    }
+
+    private void sentMessageBots(MessagesDTO messagesDTO, MessageModel messageModel, AnonymousModel anonymousModel, BotsModel botsModel)
+    {
+        messageModel.setText(messagesDTO.getText());
+        messageModel.setTimestamp(messagesDTO.getTimestamp());
+        messageModel.setFrom(botsModel);
+        if(anonymousModel  == null) {
+            AnonymousModel anonymous = new AnonymousModel();
+            anonymous.setIdentify(ANONYMOUS_ID);
+            mongoTemplate.insert(anonymous);
+            messageModel.setTo(anonymous);
+        }else {messageModel.setTo(anonymousModel);}
+
+        mongoTemplate.insert(messageModel);
+
+
+        messageModel.setConversationModel(new ConversationModel());
+        messageModel.getConversationModel().setConversationId(CONVERSATION_ID);
+        messageModel.getConversationModel().setAnonymousModel(anonymousModel);
+        messageModel.getConversationModel().setBotsModel(botsModel);
+        messageModel.getConversationModel().setText(messagesDTO.getText());
+
+        mongoTemplate.insert(messageModel.getConversationModel());
+        mongoTemplate.save(messageModel);
+    }
 
 
     public  MessagesDTO getMessageDTO(String id)
