@@ -20,15 +20,24 @@ http://localhost:8080/swagger-ui.html
 
 * first you need to mass of data , so
 
+<b>
 1-) Create bots 
-
+</b>
+</br>
+  
+<i>
 {
   "id": "string",
   "name": "string"
 }
+ </i>
+ </br>
+
+
 <b>
 2-) Create message bots 
 </b>
+</br>
 <i>
 {
   "timestamp": "2019-07-04T17:53:46.821Z",
@@ -37,6 +46,7 @@ http://localhost:8080/swagger-ui.html
  "text": "Oi! Como posso te ajudar?"
 }
 </i>
+</br>
 
 <b>
 3-) Create message anonymous
