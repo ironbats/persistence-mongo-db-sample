@@ -77,6 +77,7 @@ http://localhost:8080/swagger-ui.html
 * Second , now you can get  information to ID
 <b>
 1-) curl -X GET --header "Accept: */*" "http://localhost:8080/bots/5d1e3b1f52eec84522e82546"
+  
 </b>
 </br>
 </br>
@@ -84,12 +85,10 @@ http://localhost:8080/swagger-ui.html
 * You  receive an output like this.
 </br>
   <i>
-<font color="red">
 {
   "id" : "5d1e3b1f52eec84522e82546",
   "name" : "string"
 }
-  </font>
 
 </i>
 
