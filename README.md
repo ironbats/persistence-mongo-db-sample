@@ -39,7 +39,6 @@ http://localhost:8080/swagger-ui.html
  </br>
  </br>
 
-
 <b>
 2-) Create message bots 
 </b>
@@ -78,6 +77,8 @@ http://localhost:8080/swagger-ui.html
 
 * Second , now you can get  information to ID
 </br>
+</br>
+
 
 <b>
 1-) curl -X GET --header "Accept: */*" "http://localhost:8080/bots/5d1e3b1f52eec84522e82546"
@@ -88,6 +89,8 @@ http://localhost:8080/swagger-ui.html
 
 * You  receive bots  output like this.
 </br>
+</br>
+
   <i>
 {
   "id" : "5d1e3b1f52eec84522e82546",
@@ -96,13 +99,19 @@ http://localhost:8080/swagger-ui.html
 
 </i>
 </br>
+</br>
+
 
 <b> 2-) curl -X GET --header "Accept: */*" "http://localhost:8080/messages/5d22cdbdd5235f25e0bfd86f"
  </b>
  </br>
+ </br>
+
  
  * You  receive message output like this.
  </br>
+ </br>
+
  <i>
  {
   "id" : "5d22cdbdd5235f25e0bfd86f",
@@ -114,6 +123,8 @@ http://localhost:8080/swagger-ui.html
 }
  </i>
  </br>
+ </br>
+
  <b>
  3-) curl -X GET --header "Accept: */*" "http://localhost:8080/messages?conversationId=7665ada8-3448-4acd-a1b7-d688e68fe9a1"
 </b>
