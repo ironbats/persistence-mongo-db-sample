@@ -5,7 +5,9 @@ An API to sent messages and save in mongo DB
 
 
 # Requirements
-[JDK 8] - Minimum version of Java JDK 8
+[JDK 8] - Minimum version of Java JDK 8 </br>
+MongoDB installed in your machine
+
 
 
 # Build project
@@ -18,7 +20,7 @@ http://localhost:8080/swagger-ui.html
 
 # How to Test API 
 
-* first you need to mass of data , so
+* First you need to mass of data , so.
 
 <b>
 1-) Create bots 
@@ -70,6 +72,27 @@ http://localhost:8080/swagger-ui.html
  "text": "Sim , claro que pode "
 }
 </i>
+
+
+* Second , now you can get  information to ID
+<b>
+1-) curl -X GET --header "Accept: */*" "http://localhost:8080/bots/5d1e3b1f52eec84522e82546"
+</b>
+</br>
+</br>
+
+* You  receive an output like this.
+</br>
+  <i>
+<font color="red">
+{
+  "id" : "5d1e3b1f52eec84522e82546",
+  "name" : "string"
+}
+  </font>
+
+</i>
+
 
 
 
