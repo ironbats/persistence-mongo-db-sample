@@ -24,6 +24,8 @@ http://localhost:8080/swagger-ui.html
 1-) Create bots 
 </b>
 </br>
+</br>
+</br>
   
 <i>
 {
@@ -32,11 +34,15 @@ http://localhost:8080/swagger-ui.html
 }
  </i>
  </br>
+ </br>
+ </br>
 
 
 <b>
 2-) Create message bots 
 </b>
+</br>
+</br>
 </br>
 <i>
 {
@@ -47,11 +53,15 @@ http://localhost:8080/swagger-ui.html
 }
 </i>
 </br>
+</br>
+</br>
 
 <b>
 3-) Create message anonymous
 </b>
-
+</br>
+</br>
+</br>
 <i>
 {
   "timestamp": "2019-07-04T17:53:46.821Z",
