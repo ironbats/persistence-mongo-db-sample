@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.1.6.RELEASE'
 	id 'java'
+	id 'groovy'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -43,12 +44,16 @@ dependencies {
 
 	compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.0-api', version: '1.0.0.Final'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.1.4.RELEASE'
-	
+
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.2'
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.0.1'
 
 
 	testCompile group: 'com.h2database', name: 'h2', version: '1.4.199'
+
+	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.spockframework:spock-core:1.2-groovy-2.4'
+	testImplementation 'org.spockframework:spock-spring:1.2-groovy-2.4'
 
 
 }
@@ -58,3 +63,4 @@ dependencyManagement {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 }
+
