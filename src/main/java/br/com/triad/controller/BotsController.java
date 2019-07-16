@@ -28,7 +28,7 @@ public class BotsController {
 
     @GetMapping(value = "/{id}")
     @ResponseBody
-    @Cacheable("boots")
+    @Cacheable(value ="boots",key = "#id")
     @ApiOperation("get specific bots for id")
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "bots received with success"),
