@@ -84,16 +84,14 @@ dependencies {
 
 }
 
-// Always run unit tests
-appengineDeploy.dependsOn test
-appengineStage.dependsOn test
 
 
-gretty {
-	httpPort = 8080
-	contextPath = '/'
-	servletContainer = 'jetty9'  // What App Engine Flexible uses
-}
+
+//gretty {
+//	httpPort = 8080
+//	contextPath = '/'
+//	servletContainer = 'jetty9'  // What App Engine Flexible uses
+//}
 
 appengine {  // App Engine tasks configuration
 	deploy {   // deploy configuration
@@ -111,4 +109,4 @@ group = 'com.example.appengine'   // Generated output GroupId
 version = '1.0-SNAPSHOT'          // Version in generated output
 
 sourceCompatibility = 1.8
-targetCompatibility = 1.8	
+targetCompatibility = 1.8
